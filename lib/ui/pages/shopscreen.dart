@@ -1,9 +1,7 @@
 import 'package:Nectar/logic/providers/locationprovider.dart';
-import 'package:Nectar/services/models/allproductmodel.dart';
 import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:Nectar/ui/widgets/grocerieslist.dart';
 import 'package:Nectar/ui/widgets/productitemsgridview.dart';
 import 'package:Nectar/ui/widgets/searchbox.dart';
 import 'package:provider/provider.dart';
@@ -16,13 +14,6 @@ class Shopscreen extends StatefulWidget {
 }
 
 class _ShopscreenState extends State<Shopscreen> {
-  @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-    // Provider.of<Productsprovider>(listen: false, context).getallproduct();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,84 +93,16 @@ class _ShopscreenState extends State<Shopscreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        // Text(
-                        //   "See all",
-                        //   style: TextStyle(
-                        //     fontSize: 16,
-                        //     color: Color(0xFF53B175),
-                        //   ),
-                        // ),
                       ],
                     ),
                     SizedBox(height: 10),
                     Consumer<Productsprovider>(
                       builder: (_, provider, _) {
-                        List<Map
-                        <String,dynamic>> allproducts =
+                        List<Map<String, dynamic>> allproducts =
                             provider.allproducts;
                         return ProductItemsGridview(productmodel: allproducts);
                       },
                     ),
-                    // SizedBox(height: 10),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     Text(
-                    //       "Best Selling",
-                    //       style: TextStyle(
-                    //         fontSize: 24,
-                    //         color: Colors.black,
-                    //         fontWeight: FontWeight.bold,
-                    //       ),
-                    //     ),
-                    //     Text(
-                    //       "See all",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //         color: Color(0xFF53B175),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
-                    // SizedBox(height: 10),
-                    // Consumer<Productsprovider>(
-                    //   builder: (_, provider, _) {
-                    //     List<Allproductmodel> allproducts =
-                    //         provider.allproducts;
-                    //     return ProductItemsGridview(productmodel: allproducts);
-                    //   },
-                    // ),
-                    // SizedBox(height: 10),
-                    // Row(
-                    //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    //   children: [
-                    //     Text(
-                    //       "Groceries",
-                    //       style: TextStyle(
-                    //         fontSize: 24,
-                    //         color: Colors.black,
-                    //         fontWeight: FontWeight.bold,
-                    //       ),
-                    //     ),
-                    //     Text(
-                    //       "See all",
-                    //       style: TextStyle(
-                    //         fontSize: 16,
-                    //         color: Color(0xFF53B175),
-                    //       ),
-                    //     ),
-                    //   ],
-                    // ),
-                    // SizedBox(height: 10),
-                    // Grocerieslist(),
-                    // SizedBox(height: 10),
-                    // Consumer<Productsprovider>(
-                    //   builder: (_, provider, _) {
-                    //     List<Allproductmodel> allproducts =
-                    //         provider.allproducts;
-                    //     return ProductItemsGridview(productmodel: allproducts);
-                    //   },
-                    // ),
                   ],
                 ),
               ),

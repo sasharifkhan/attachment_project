@@ -4,6 +4,7 @@ import 'package:Nectar/firebase_options.dart';
 import 'package:Nectar/logic/auth/authentication.dart';
 import 'package:Nectar/logic/providers/locationprovider.dart';
 import 'package:Nectar/logic/providers/profiledetailsprovider.dart';
+import 'package:Nectar/services/providers/getsingleproduct.dart';
 import 'package:Nectar/services/providers/categoriesprovider.dart';
 import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:device_preview/device_preview.dart';
@@ -44,6 +45,7 @@ Future<void> main() async {
         ChangeNotifierProvider(create: (context) => Profiledetailsprovider()),
         ChangeNotifierProvider(create: (context) => Productsprovider()),
         ChangeNotifierProvider(create: (context) => Categoriesprovider()),
+        ChangeNotifierProvider(create: (context) => Getsingleproduct()),
       ],
       child: MyApp(initialRoute: route),
     ),

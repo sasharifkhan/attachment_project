@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Categoriesprovider extends ChangeNotifier {
-  bool _isloading = false;
+  final bool _isloading = false;
   get isloading => _isloading;
 
   final List<Map<String, String>> _productcategories = [
@@ -15,16 +15,4 @@ class Categoriesprovider extends ChangeNotifier {
     {"name": "Sandwich", "image": "lib/assets/categories/sandwich.png"},
   ];
   get productcategories => _productcategories;
-
-  //   categories() async{
-  //     _isloading = true;
-  //     var response = await http.get(Uri.parse("${Baseurl().baseurl}${Endpoints().categories}"));
-  //     if (response.statusCode == 200 || response.statusCode == 201){
-  //       final jsondata = jsonDecode(response.body);
-  //       final categorisdata = jsondata['data']['categories'] as List;
-  //       _productcategories = categorisdata.map((e) => Categoriesmodel.fromJson(e)).toList();
-  //     }
-  //     _isloading = false;
-  //     notifyListeners();
-  //   }
 }

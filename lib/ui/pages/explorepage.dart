@@ -68,7 +68,9 @@ class _ExplorepageState extends State<Explorepage> {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => Categoriesproduct(),
+                            builder: (context) => Categoriesproduct(
+                              categoriesname: productcategories[index]['name'],
+                            ),
                           ),
                         ),
                         child: Container(

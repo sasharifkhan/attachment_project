@@ -1,6 +1,8 @@
-import 'package:Nectar/services/apiservices/apirequest/getsingleproduct.dart';
+import 'package:Nectar/services/providers/getsingleproduct.dart';
+import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:Nectar/ui/widgets/rectangleroundedbutton.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class Productdetails extends StatefulWidget {
   final int id;
@@ -12,6 +14,15 @@ class Productdetails extends StatefulWidget {
 
 class _ProductdetailsState extends State<Productdetails> {
   @override
+  void initState() {
+    super.initState();
+    Provider.of<Getsingleproduct>(
+      context,
+      listen: false,
+    ).getsingleproduct(widget.id, context);
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
@@ -20,15 +31,9 @@ class _ProductdetailsState extends State<Productdetails> {
         automaticallyImplyLeading: true,
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.share))],
       ),
-      body: FutureBuilder(
-        future: Getsingleproduct().getsingleproduct(widget.id),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting)
-            return Center(
-              child: CircularProgressIndicator(color: Colors.black),
-            );
-          if (snapshot.data!['status'] == false)
-            return Center(child: Text("Product Error"));
+      body: Consumer<Getsingleproduct>(
+        builder: (_, provider, _) {
+          List<Map<String, dynamic>> productinfo = provider.productinfo;
           return Column(
             children: [
               Expanded(
@@ -45,13 +50,8 @@ class _ProductdetailsState extends State<Productdetails> {
                       child: ClipRRect(
                         borderRadius: BorderRadiusGeometry.circular(15),
                         child: Image(
-                          image:
-                              snapshot.data!['image'] ==
-                                  "https://api.zhndev.site/wp-content/uploads/woocommerce-placeholder-300x300.webp"
-                              ? AssetImage(
-                                  "lib/assets/productimages/pngtree-colorful-mixed-fruit-smoothie-with-straw-png-image_20069721.png",
-                                )
-                              : NetworkImage(snapshot.data!['image']),
+                          image: AssetImage(productinfo[0]['image']),
+
                           height: 200,
                           width: 330,
                           fit: BoxFit.fill,
@@ -79,17 +79,34 @@ class _ProductdetailsState extends State<Productdetails> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              snapshot.data!['name'],
+                              productinfo[0]['name'],
                               style: TextStyle(fontSize: 24),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.favorite_border),
+                            Consumer<Productsprovider>(
+                              builder: (_, provider, _) {
+                                List<Map<String, dynamic>> favlist =
+                                    provider.favorite;
+                                final exists = favlist.any(
+                                  (p) => p['id'] == widget.id,
+                                );
+                                return IconButton(
+                                  onPressed: () {
+                                    provider.addproducttofavorite(widget.id);
+                                  },
+                                  icon: Icon(
+                                    exists
+                                        ? Icons.favorite
+                                        : Icons.favorite_border,
+                                  ),
+                                );
+                              },
                             ),
                           ],
                         ),
                         Text(
-                          snapshot.data!['stockstatus'],
+                          productinfo[0]['stock'] == 1
+                              ? "In Stock"
+                              : "Out of Stock",
                           style: TextStyle(fontSize: 16),
                         ),
                         Row(
@@ -109,9 +126,7 @@ class _ProductdetailsState extends State<Productdetails> {
                               ],
                             ),
                             Text(
-                              snapshot.data!['price'] == ""
-                                  ? "1.0"
-                                  : snapshot.data!["price"],
+                              "${productinfo[0]['price'].toString()} BDT",
                               style: TextStyle(
                                 fontSize: 24,
                                 fontWeight: FontWeight.bold,
@@ -127,15 +142,17 @@ class _ProductdetailsState extends State<Productdetails> {
                               "Product Details",
                               style: TextStyle(fontSize: 16),
                             ),
-                            IconButton(
-                              onPressed: () {},
-                              icon: Icon(Icons.keyboard_arrow_down_sharp),
-                            ),
+                            // IconButton(
+                            //   onPressed: () {},
+                            //   icon: Icon(Icons.keyboard_arrow_down_sharp),
+                            // ),
                           ],
                         ),
                         Text(
-                          snapshot.data!['description'],
+                          productinfo[0]['desc'],
                           style: TextStyle(fontSize: 13),
+                          maxLines: 3,
+                          overflow: TextOverflow.ellipsis,
                         ),
                         Container(height: 1, color: Colors.grey.shade300),
                         Row(
@@ -144,7 +161,7 @@ class _ProductdetailsState extends State<Productdetails> {
                             Text("Nutritions", style: TextStyle(fontSize: 16)),
                             Row(
                               children: [
-                                Text(snapshot.data!['type']),
+                                Text(productinfo[0]['nutrition'].toString()),
                                 IconButton(
                                   onPressed: () {},
                                   icon: Icon(Icons.keyboard_arrow_right),
@@ -176,7 +193,12 @@ class _ProductdetailsState extends State<Productdetails> {
                         Rectangleroundedbutton(
                           buttonName: "Add To Basket",
                           buttonbgcolor: Color(0xFF53B175),
-                          callback: () {},
+                          callback: () {
+                            Provider.of<Productsprovider>(
+                              context,
+                              listen: false,
+                            ).addproducttocart(widget.id);
+                          },
                         ),
                       ],
                     ),

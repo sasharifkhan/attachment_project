@@ -1,9 +1,4 @@
-import 'package:Nectar/services/models/allproductmodel.dart';
 import 'package:flutter/widgets.dart';
-import 'dart:convert';
-import 'package:http/http.dart' as http;
-import 'package:Nectar/services/apiservices/urls/baseurl.dart';
-import 'package:Nectar/services/apiservices/urls/endpoints.dart';
 
 class Productsprovider extends ChangeNotifier {
   final List<Map<String, dynamic>> _allproducts = [
@@ -13,7 +8,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 500,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "beverages",
+      "categories": "Beverages",
       "stock": 1,
       "nutrition": 100,
       "review": 5,
@@ -25,7 +20,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 450,
       "desc":
           "Cheer Up is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "beverages",
+      "categories": "Beverages",
       "stock": 1,
       "nutrition": 150,
       "review": 4,
@@ -37,7 +32,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 600,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "beverages",
+      "categories": "Beverages",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -49,7 +44,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 250,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "burger",
+      "categories": "Burger",
       "stock": 1,
       "nutrition": 50,
       "review": 5,
@@ -61,7 +56,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 600,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "burger",
+      "categories": "Burger",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -74,7 +69,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 800,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "burger",
+      "categories": "Burger",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -87,7 +82,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "dessert",
+      "categories": "Dessert",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -99,7 +94,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "dessert",
+      "categories": "Dessert",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -111,7 +106,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "dessert",
+      "categories": "Dessert",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -124,7 +119,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "mexican",
+      "categories": "Mexican",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -136,7 +131,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "mexican",
+      "categories": "Mexican",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -149,7 +144,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "mexican",
+      "categories": "Mexican",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -161,7 +156,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "pasta",
+      "categories": "Pasta",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -174,7 +169,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "pasta",
+      "categories": "Pasta",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -186,7 +181,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "pasta",
+      "categories": "Pasta",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -198,7 +193,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "pizza",
+      "categories": "Pizza",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -210,7 +205,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "pizza",
+      "categories": "Pizza",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -222,7 +217,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "pizza",
+      "categories": "Pizza",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -234,7 +229,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "salads",
+      "categories": "Salads",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -246,7 +241,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "salads",
+      "categories": "Salads",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -258,7 +253,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "salads",
+      "categories": "Salads",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -270,7 +265,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "sandwich",
+      "categories": "Sandwich",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -282,7 +277,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "sandwich",
+      "categories": "Sandwich",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -295,7 +290,7 @@ class Productsprovider extends ChangeNotifier {
       "price": 120,
       "desc":
           "7UP is a popular lemon–lime–flavored carbonated soft drink known for its crisp and refreshing taste. It has a light, clean flavor made from natural lemon and lime essences. Because it contains no caffeine, it’s a convenient and worry-free choice for people of all ages.",
-      "categories": "sandwich",
+      "categories": "Sandwich",
       "stock": 1,
       "nutrition": 150,
       "review": 5,
@@ -305,21 +300,52 @@ class Productsprovider extends ChangeNotifier {
   ];
   get allproducts => _allproducts;
 
-  //  Future<void> getallproduct() async {
-  //   var response = await http.get(
-  //     Uri.parse("${Baseurl().baseurl}${Endpoints().products}"),
-  //   );
+  final List<Map<String, dynamic>> _categoriesproduct = [];
+  get cateoriesproduct => _categoriesproduct;
 
-  //   if (response.statusCode == 200 || response.statusCode == 201) {
-  //     final jsondata = jsonDecode(response.body);
-  //     final productlist = jsondata['data']['products'] as List;
+  updateandsavecategories(String categoriesname) {
+    _categoriesproduct.clear();
+    _categoriesproduct.addAll(
+      _allproducts.where(
+        (p) => (p['categories'] ?? '').toString() == categoriesname,
+      ),
+    );
+    notifyListeners();
+  }
 
-  //     _allproducts = productlist
-  //         .map((e) => Allproductmodel.fromJson(e))
-  //         .toList();
-  //   } else {
+  final List<Map<String, dynamic>> _cart = [];
+  get cart => _cart;
 
-  //   }
-  //   notifyListeners();
-  // }
+  addproducttocart(int id) {
+    final exists = _cart.any((p) => p['id'] == id);
+    if (!exists) {
+      final product = _allproducts.firstWhere((p) => p['id'] == id);
+      _cart.add(product);
+      print("product added to cart");
+    } else if (exists) {
+      print("Product already in cart");
+    }
+    notifyListeners();
+  }
+
+  removeproducttocart(int id) {
+    final product = _cart.firstWhere((p) => p['id'] == id);
+    _cart.remove(product);
+    notifyListeners();
+  }
+
+  final List<Map<String, dynamic>> _favorite = [];
+  get favorite => _favorite;
+
+  addproducttofavorite(int id) {
+    final exists = _favorite.any((p) => p['id'] == id);
+    if (!exists) {
+      final product = _allproducts.firstWhere((p) => p['id'] == id);
+      _favorite.add(product);
+    } else if (exists) {
+      final product = _allproducts.firstWhere((p) => p['id'] == id);
+      _favorite.remove(product);
+    }
+    notifyListeners();
+  }
 }
