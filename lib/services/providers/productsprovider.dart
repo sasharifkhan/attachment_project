@@ -321,17 +321,19 @@ class Productsprovider extends ChangeNotifier {
     if (!exists) {
       final product = _allproducts.firstWhere((p) => p['id'] == id);
       _cart.add(product);
-      print("product added to cart");
+      notifyListeners();
+      return true;
     } else if (exists) {
-      print("Product already in cart");
+      notifyListeners();
+      return false;
     }
-    notifyListeners();
   }
 
   removeproducttocart(int id) {
     final product = _cart.firstWhere((p) => p['id'] == id);
     _cart.remove(product);
     notifyListeners();
+    return true;
   }
 
   final List<Map<String, dynamic>> _favorite = [];
@@ -342,9 +344,13 @@ class Productsprovider extends ChangeNotifier {
     if (!exists) {
       final product = _allproducts.firstWhere((p) => p['id'] == id);
       _favorite.add(product);
+      notifyListeners();
+      return true;
     } else if (exists) {
       final product = _allproducts.firstWhere((p) => p['id'] == id);
       _favorite.remove(product);
+      notifyListeners();
+      return false;
     }
     notifyListeners();
   }

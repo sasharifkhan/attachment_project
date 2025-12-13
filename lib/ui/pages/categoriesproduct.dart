@@ -2,6 +2,7 @@ import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:Nectar/ui/pages/productdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class Categoriesproduct extends StatefulWidget {
@@ -114,12 +115,24 @@ class _CategoriesproductState extends State<Categoriesproduct> {
                           ),
                           IconButton(
                             onPressed: () {
-                              Provider.of<Productsprovider>(
-                                context,
-                                listen: false,
-                              ).addproducttocart(
-                                categoriesproducts[index]['id'],
-                              );
+                              bool status =
+                                  Provider.of<Productsprovider>(
+                                    context,
+                                    listen: false,
+                                  ).addproducttocart(
+                                    categoriesproducts[index]['id'],
+                                  );
+                              if (status == true) {
+                                Fluttertoast.showToast(
+                                  msg: "Product added to Cart",
+                                  gravity: ToastGravity.TOP,
+                                );
+                              } else if (status == false) {
+                                Fluttertoast.showToast(
+                                  msg: "Product already added to Cart",
+                                  gravity: ToastGravity.TOP,
+                                );
+                              }
                             },
                             icon: Image(
                               image: AssetImage(

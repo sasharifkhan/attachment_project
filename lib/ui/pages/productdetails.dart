@@ -3,6 +3,7 @@ import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:Nectar/ui/widgets/rectangleroundedbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class Productdetails extends StatefulWidget {
@@ -98,7 +99,20 @@ class _ProductdetailsState extends State<Productdetails> {
                                 );
                                 return IconButton(
                                   onPressed: () {
-                                    provider.addproducttofavorite(widget.id);
+                                    bool status = provider.addproducttofavorite(
+                                      widget.id,
+                                    );
+                                    if (status == true) {
+                                      Fluttertoast.showToast(
+                                        msg: "Product added to Favorite",
+                                        gravity: ToastGravity.TOP,
+                                      );
+                                    } else if (status == false) {
+                                      Fluttertoast.showToast(
+                                        msg: "Product removed from Favorite",
+                                        gravity: ToastGravity.TOP,
+                                      );
+                                    }
                                   },
                                   icon: Icon(
                                     size: 24.dg,
@@ -221,10 +235,21 @@ class _ProductdetailsState extends State<Productdetails> {
                           buttonName: "Add To Basket",
                           buttonbgcolor: Color(0xFF53B175),
                           callback: () {
-                            Provider.of<Productsprovider>(
+                            bool status = Provider.of<Productsprovider>(
                               context,
                               listen: false,
                             ).addproducttocart(widget.id);
+                            if (status == true) {
+                              Fluttertoast.showToast(
+                                msg: "Product added to Cart",
+                                gravity: ToastGravity.TOP,
+                              );
+                            } else if (status == false) {
+                              Fluttertoast.showToast(
+                                msg: "Product already added to Cart",
+                                gravity: ToastGravity.TOP,
+                              );
+                            }
                           },
                         ),
                       ],

@@ -2,6 +2,7 @@ import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:Nectar/ui/pages/productdetails.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class Favorite extends StatefulWidget {
@@ -49,7 +50,20 @@ class _FavoriteState extends State<Favorite> {
               itemBuilder: (context, index) => Dismissible(
                 key: Key(favlist[index]['id'].toString()),
                 onDismissed: (direction) {
-                  provider.addproducttofavorite(favlist[index]['id']);
+                  bool status = provider.addproducttofavorite(
+                    favlist[index]['id'],
+                  );
+                  if (status == true) {
+                    Fluttertoast.showToast(
+                      msg: "Product added to Favorite",
+                      gravity: ToastGravity.TOP,
+                    );
+                  } else if (status == false) {
+                    Fluttertoast.showToast(
+                      msg: "Product remove from Favorite",
+                      gravity: ToastGravity.TOP,
+                    );
+                  }
                 },
                 child: ListTile(
                   contentPadding: EdgeInsets.zero,

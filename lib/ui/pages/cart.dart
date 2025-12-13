@@ -1,6 +1,7 @@
 import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
 
 class Cart extends StatelessWidget {
@@ -111,9 +112,15 @@ class Cart extends StatelessWidget {
                       children: [
                         IconButton(
                           onPressed: () {
-                            provider.removeproducttocart(
+                            bool status = provider.removeproducttocart(
                               cartitems[index]['id'],
                             );
+                            if (status == true) {
+                              Fluttertoast.showToast(
+                                msg: "Product removed from Cart",
+                                gravity: ToastGravity.TOP,
+                              );
+                            }
                           },
                           icon: Icon(Icons.close),
                         ),
