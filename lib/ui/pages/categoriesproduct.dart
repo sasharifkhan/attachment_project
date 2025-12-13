@@ -1,6 +1,7 @@
 import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:Nectar/ui/pages/productdetails.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Categoriesproduct extends StatefulWidget {
@@ -30,7 +31,7 @@ class _CategoriesproductState extends State<Categoriesproduct> {
         title: Center(
           child: Text(
             widget.categoriesname,
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
           ),
         ),
         actions: [IconButton(onPressed: () {}, icon: Icon(Icons.filter_list))],
@@ -46,11 +47,12 @@ class _CategoriesproductState extends State<Categoriesproduct> {
               itemCount: categoriesproducts.length,
               padding: EdgeInsets.all(10),
               scrollDirection: Axis.vertical,
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                 mainAxisExtent: 250,
-                mainAxisSpacing: 15,
-                crossAxisCount: 2,
-                crossAxisSpacing: 15,
+                mainAxisSpacing: 15.h,
+                crossAxisSpacing: 15.w,
+                childAspectRatio: 0.75,
+                maxCrossAxisExtent: 250,
               ),
               itemBuilder: (context, index) => Container(
                 height: 250,
@@ -78,12 +80,13 @@ class _CategoriesproductState extends State<Categoriesproduct> {
                           );
                         },
                         child: Center(
-                          child: Image(
-                            image: AssetImage(
-                              categoriesproducts[index]['image'],
+                          child: AspectRatio(
+                            aspectRatio: 200 / 80,
+                            child: Image(
+                              image: AssetImage(
+                                categoriesproducts[index]['image'],
+                              ),
                             ),
-                            height: 80,
-                            width: 99,
                           ),
                         ),
                       ),
@@ -122,8 +125,8 @@ class _CategoriesproductState extends State<Categoriesproduct> {
                               image: AssetImage(
                                 "lib/assets/icons/add_button.png",
                               ),
-                              height: 45,
-                              width: 45,
+                              height: 35,
+                              width: 35,
                             ),
                           ),
                         ],

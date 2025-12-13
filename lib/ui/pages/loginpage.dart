@@ -10,6 +10,7 @@ import 'package:Nectar/ui/pages/selectlocation.dart';
 import 'package:Nectar/ui/pages/singuppage.dart';
 import 'package:Nectar/ui/widgets/plainedtextfield.dart';
 import 'package:Nectar/ui/widgets/rectangleroundedbutton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Loginpage extends StatefulWidget {
@@ -39,11 +40,11 @@ class _LoginpageState extends State<Loginpage> {
             ),
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 40,
-                  bottom: 50,
+                padding: EdgeInsets.only(
+                  left: 20.w,
+                  right: 20.w,
+                  top: 40.h,
+                  bottom: 50.h,
                 ),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -54,24 +55,24 @@ class _LoginpageState extends State<Loginpage> {
                         image: AssetImage(
                           "lib/assets/icons/nectar_icon_red.png",
                         ),
-                        height: 55,
-                        width: 47,
+                        height: 50.dg,
+                        width: 42.dg,
                       ),
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Log In", style: TextStyle(fontSize: 26)),
+                        Text("Log In", style: TextStyle(fontSize: 22.sp)),
                         Text(
                           "Enter your email and password",
-                          style: TextStyle(fontSize: 16),
+                          style: TextStyle(fontSize: 15.sp),
                         ),
                       ],
                     ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Email", style: TextStyle(fontSize: 16)),
+                        Text("Email", style: TextStyle(fontSize: 15.sp)),
                         Plainedtextfield(
                           keyboardType: TextInputType.name,
                           textboxHintText: "Enter your email",
@@ -82,7 +83,7 @@ class _LoginpageState extends State<Loginpage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text("Password", style: TextStyle(fontSize: 16)),
+                        Text("Password", style: TextStyle(fontSize: 15.sp)),
                         Consumer<Providerdata>(
                           builder: (ctx, provider, child) {
                             bool passwordshowdetais =
@@ -119,7 +120,7 @@ class _LoginpageState extends State<Loginpage> {
                                   text: TextSpan(
                                     text: "Forgot Password?",
                                     style: TextStyle(
-                                      fontSize: 14,
+                                      fontSize: 13.sp,
                                       color: Colors.black,
                                     ),
                                     recognizer: TapGestureRecognizer()
@@ -190,7 +191,7 @@ class _LoginpageState extends State<Loginpage> {
                                       title: Text(
                                         "Please fill the email box then try again.",
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 17),
+                                        style: TextStyle(fontSize: 16.sp),
                                       ),
                                     ),
                                   );
@@ -212,7 +213,7 @@ class _LoginpageState extends State<Loginpage> {
                                       title: Text(
                                         "Please fill the password box then try again.",
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 17),
+                                        style: TextStyle(fontSize: 16.sp),
                                       ),
                                     ),
                                   );
@@ -233,7 +234,7 @@ class _LoginpageState extends State<Loginpage> {
                                       title: Text(
                                         "Please fill email and password then try again.",
                                         textAlign: TextAlign.center,
-                                        style: TextStyle(fontSize: 17),
+                                        style: TextStyle(fontSize: 16.sp),
                                       ),
                                     ),
                                   );
@@ -267,14 +268,14 @@ class _LoginpageState extends State<Loginpage> {
                             TextSpan(
                               text: "Don’t have an account? ",
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 12.sp,
                                 color: Colors.black,
                               ),
                             ),
                             TextSpan(
                               text: "SignUp",
                               style: TextStyle(
-                                fontSize: 14,
+                                fontSize: 12.sp,
                                 color: Color(0xFF53B175),
                               ),
                               recognizer: TapGestureRecognizer()

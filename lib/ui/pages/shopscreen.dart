@@ -4,6 +4,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:Nectar/ui/widgets/productitemsgridview.dart';
 import 'package:Nectar/ui/widgets/searchbox.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Shopscreen extends StatefulWidget {
@@ -20,13 +21,13 @@ class _ShopscreenState extends State<Shopscreen> {
       backgroundColor: Colors.white,
       body: Center(
         child: Padding(
-          padding: const EdgeInsets.only(top: 40, left: 20, right: 20),
+          padding: EdgeInsets.only(top: 40.h, left: 20.w, right: 20.w),
           child: Column(
             children: [
               Image(
                 image: AssetImage("lib/assets/icons/nectar_icon_red.png"),
-                height: 30,
-                width: 26,
+                height: 28.dg,
+                width: 22.dg,
               ),
               SizedBox(height: 8),
               Row(
@@ -34,22 +35,22 @@ class _ShopscreenState extends State<Shopscreen> {
                 children: [
                   Image(
                     image: AssetImage("lib/assets/icons/location_icon.png"),
-                    height: 18,
-                    width: 15,
+                    height: 16.dg,
+                    width: 14.dg,
                   ),
                   SizedBox(width: 10),
                   Consumer<Locationprovider>(
                     builder: (ctx, provider, _) {
                       provider.setlicationfromgetstorate();
                       String location = provider.locationdetails;
-                      return Text(location);
+                      return Text(location, style: TextStyle(fontSize: 14.sp));
                     },
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 20.h),
               const Searchbox(),
-              SizedBox(height: 1),
+              SizedBox(height: 5.h),
               Expanded(
                 child: ListView(
                   children: [
@@ -76,19 +77,19 @@ class _ShopscreenState extends State<Shopscreen> {
                         ],
                         options: CarouselOptions(
                           autoPlay: true,
-                          height: 130,
+                          height: 130.h,
                           viewportFraction: 1,
                         ),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    SizedBox(height: 10.h),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
                           "Products",
                           style: TextStyle(
-                            fontSize: 24,
+                            fontSize: 22.sp,
                             color: Colors.black,
                             fontWeight: FontWeight.bold,
                           ),

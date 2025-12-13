@@ -8,6 +8,7 @@ import 'package:Nectar/logic/auth/providerdata.dart';
 import 'package:Nectar/ui/pages/selectlocation.dart';
 import 'package:Nectar/ui/widgets/plainedtextfield.dart';
 import 'package:Nectar/ui/widgets/rectangleroundedbutton.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Singuppage extends StatefulWidget {
@@ -39,41 +40,45 @@ class _SinguppageState extends State<Singuppage> {
             ),
             child: Center(
               child: Padding(
-                padding: const EdgeInsets.only(
-                  left: 20,
-                  right: 20,
-                  top: 40,
-                  bottom: 50,
+                padding: EdgeInsets.only(
+                  left: 20.w,
+                  right: 20.w,
+                  top: 40.h,
+                  bottom: 50.h,
                 ),
                 child: ListView(
                   children: [
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Center(
                           child: Image(
                             image: AssetImage(
                               "lib/assets/icons/nectar_icon_red.png",
                             ),
-                            height: 55,
-                            width: 47,
+                            height: 50.dg,
+                            width: 42.dg,
                           ),
                         ),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Sign Up", style: TextStyle(fontSize: 26)),
+                            Text("Sign Up", style: TextStyle(fontSize: 22.sp)),
                             Text(
                               "Enter your credentials to continue",
-                              style: TextStyle(fontSize: 16),
+                              style: TextStyle(fontSize: 15.sp),
                             ),
                           ],
                         ),
-                        SizedBox(height: 40),
+                        SizedBox(height: 40.h),
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Full Name", style: TextStyle(fontSize: 16)),
+                            Text(
+                              "Full Name",
+                              style: TextStyle(fontSize: 15.sp),
+                            ),
                             Plainedtextfield(
                               keyboardType: TextInputType.name,
                               controller: signupUserfullname,
@@ -85,7 +90,7 @@ class _SinguppageState extends State<Singuppage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Email", style: TextStyle(fontSize: 16)),
+                            Text("Email", style: TextStyle(fontSize: 15.sp)),
                             Plainedtextfield(
                               keyboardType: TextInputType.emailAddress,
                               controller: signupEmail,
@@ -97,7 +102,7 @@ class _SinguppageState extends State<Singuppage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Phone", style: TextStyle(fontSize: 16)),
+                            Text("Phone", style: TextStyle(fontSize: 15.sp)),
                             Plainedtextfield(
                               keyboardType: TextInputType.number,
                               controller: signupUserphone,
@@ -109,7 +114,7 @@ class _SinguppageState extends State<Singuppage> {
                         Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Password", style: TextStyle(fontSize: 16)),
+                            Text("Password", style: TextStyle(fontSize: 15.sp)),
                             Consumer<Providerdata>(
                               builder: (ctx, provider, child) {
                                 bool passwordshowdetais =
@@ -128,7 +133,7 @@ class _SinguppageState extends State<Singuppage> {
                                 );
                               },
                             ),
-                            SizedBox(height: 30),
+                            SizedBox(height: 30.h),
                             Consumer<Providerdata>(
                               builder: (ctx, provider, _) {
                                 String message = provider.message;
@@ -146,21 +151,33 @@ class _SinguppageState extends State<Singuppage> {
                                 children: [
                                   TextSpan(
                                     text: "By continuing you agree to our ",
-                                    style: TextStyle(color: Colors.black),
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12.sp,
+                                    ),
                                   ),
                                   TextSpan(
                                     text: "Terms of Service",
-                                    style: TextStyle(color: Color(0xFF53B175)),
+                                    style: TextStyle(
+                                      color: Color(0xFF53B175),
+                                      fontSize: 12.sp,
+                                    ),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {},
                                   ),
                                   TextSpan(
                                     text: " and ",
-                                    style: TextStyle(color: Colors.black),
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 12.sp,
+                                    ),
                                   ),
                                   TextSpan(
                                     text: "Privacy Policy.",
-                                    style: TextStyle(color: Color(0xFF53B175)),
+                                    style: TextStyle(
+                                      color: Color(0xFF53B175),
+                                      fontSize: 12.sp,
+                                    ),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {},
                                   ),
@@ -217,14 +234,14 @@ class _SinguppageState extends State<Singuppage> {
                                 TextSpan(
                                   text: "Already have an account? ",
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 12.sp,
                                     color: Colors.black,
                                   ),
                                 ),
                                 TextSpan(
                                   text: "Login",
                                   style: TextStyle(
-                                    fontSize: 14,
+                                    fontSize: 12.sp,
                                     color: Color(0xFF53B175),
                                   ),
                                   recognizer: TapGestureRecognizer()

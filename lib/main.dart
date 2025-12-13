@@ -17,6 +17,7 @@ import 'package:Nectar/ui/pages/homescreen.dart';
 import 'package:Nectar/ui/pages/selectlocation.dart';
 import 'package:Nectar/ui/pages/splashscreen.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -58,16 +59,22 @@ class MyApp extends StatelessWidget {
   const MyApp({super.key, required this.initialRoute});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      initialRoute: initialRoute,
-      routes: {
-        'login': (_) => Splashscreen(),
-        'alreadyloggedin': (_) => Selectlocation(),
-        'alreadyhavelocation': (_) => Homescreen(),
-      },
-      title: 'nectar',
-      theme: ThemeData(),
+    return ScreenUtilInit(
+      designSize: Size(390, 844),
+      splitScreenMode: true,
+      ensureScreenSize: true,
+
+      builder: (context, child) => MaterialApp(
+        debugShowCheckedModeBanner: false,
+        initialRoute: initialRoute,
+        routes: {
+          'login': (_) => Splashscreen(),
+          'alreadyloggedin': (_) => Selectlocation(),
+          'alreadyhavelocation': (_) => Homescreen(),
+        },
+        title: 'nectar',
+        theme: ThemeData(),
+      ),
     );
   }
 }

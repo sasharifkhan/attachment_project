@@ -3,6 +3,7 @@ import 'package:Nectar/services/providers/categoriesprovider.dart';
 import 'package:Nectar/ui/pages/categoriesproduct.dart';
 import 'package:Nectar/ui/widgets/searchbox.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Explorepage extends StatefulWidget {
@@ -45,6 +46,7 @@ class _ExplorepageState extends State<Explorepage> {
               ),
               SizedBox(height: 20),
               Searchbox(),
+              SizedBox(height: 10.h),
               Expanded(
                 child: Consumer<Categoriesprovider>(
                   builder: (ctx, provider, _) {
@@ -58,11 +60,11 @@ class _ExplorepageState extends State<Explorepage> {
                     return GridView.builder(
                       itemCount: productcategories.length,
                       // Item count//////////////////////////////////////////
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        mainAxisSpacing: 15,
-                        crossAxisSpacing: 15,
+                      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                        mainAxisSpacing: 15.h,
+                        crossAxisSpacing: 15.w,
                         mainAxisExtent: 190,
+                        maxCrossAxisExtent: 250,
                       ),
                       itemBuilder: (context, index) => InkWell(
                         onTap: () => Navigator.push(

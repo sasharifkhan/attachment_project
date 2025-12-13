@@ -12,18 +12,27 @@ class Splashscreen extends StatefulWidget {
 
 class _SplashscreenState extends State<Splashscreen> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
     Timer(Duration(seconds: 2), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Onboardingscreen(),));
-    },);
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => Onboardingscreen()),
+      );
+    });
   }
+
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       backgroundColor: Color(0xFF53B175),
-      body: Center(child: Image(image: AssetImage('lib/assets/icons/necter_logo.png'),height: 68,width: 267))
-      );
+      body: Center(
+        child: Image(
+          image: AssetImage('lib/assets/icons/necter_logo.png'),
+          height: 68,
+          width: 267,
+        ),
+      ),
+    );
   }
 }

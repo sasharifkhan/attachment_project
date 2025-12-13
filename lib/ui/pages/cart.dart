@@ -1,5 +1,6 @@
 import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Cart extends StatelessWidget {
@@ -31,7 +32,10 @@ class Cart extends StatelessWidget {
             List<Map<String, dynamic>> cartitems = provider.cart;
             if (cartitems.isEmpty) {
               return Center(
-                child: Text("No Items is Cart", style: TextStyle(fontSize: 18)),
+                child: Text(
+                  "No Items is Cart",
+                  style: TextStyle(fontSize: 18.sp),
+                ),
               );
             }
             return ListView.separated(
@@ -47,8 +51,8 @@ class Cart extends StatelessWidget {
                       children: [
                         Image(
                           image: AssetImage(cartitems[index]['image']),
-                          height: 70,
-                          width: 70,
+                          height: 70.dg,
+                          width: 70.dg,
                         ),
                         SizedBox(width: 18),
                         Column(
@@ -59,7 +63,7 @@ class Cart extends StatelessWidget {
                               cartitems[index]['name'],
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 16,
+                                fontSize: 16.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
@@ -69,7 +73,7 @@ class Cart extends StatelessWidget {
                                   : "Out of Stock",
                               style: TextStyle(
                                 color: Colors.black,
-                                fontSize: 14,
+                                fontSize: 14.sp,
                               ),
                             ),
                             Row(
@@ -80,19 +84,19 @@ class Cart extends StatelessWidget {
                                     image: (AssetImage(
                                       "lib/assets/icons/minusicon.png",
                                     )),
-                                    height: 45,
-                                    width: 45,
+                                    height: 35.dg,
+                                    width: 35.dg,
                                   ),
                                 ),
-                                Text("1", style: TextStyle(fontSize: 16)),
+                                Text("1", style: TextStyle(fontSize: 16.sp)),
                                 IconButton(
                                   onPressed: () {},
                                   icon: Image(
                                     image: (AssetImage(
                                       "lib/assets/icons/plusicon.png",
                                     )),
-                                    height: 45,
-                                    width: 45,
+                                    height: 35.dg,
+                                    width: 35.dg,
                                   ),
                                 ),
                               ],
@@ -115,7 +119,7 @@ class Cart extends StatelessWidget {
                         ),
                         Text(
                           "${cartitems[index]['price'].toString()} BDT",
-                          style: TextStyle(fontSize: 18),
+                          style: TextStyle(fontSize: 16.sp),
                         ),
                       ],
                     ),

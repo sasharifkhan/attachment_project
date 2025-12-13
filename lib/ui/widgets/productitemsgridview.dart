@@ -2,6 +2,7 @@
 import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:Nectar/ui/pages/productdetails.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class ProductItemsGridview extends StatefulWidget {
@@ -20,12 +21,11 @@ class _ProductItemsGridviewState extends State<ProductItemsGridview> {
       itemCount: widget.productmodel.length,
       padding: EdgeInsets.all(10),
       scrollDirection: Axis.vertical,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        // mainAxisExtent: 174,
-        mainAxisSpacing: 20,
-        crossAxisSpacing: 20,
-        crossAxisCount: 2,
-        mainAxisExtent: 250,
+      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+        mainAxisSpacing: 20.h,
+        crossAxisSpacing: 20.w,
+        childAspectRatio: 0.75,
+        maxCrossAxisExtent: 250,
       ),
       itemBuilder: (context, index) => Container(
         // height: 1000,
@@ -52,30 +52,31 @@ class _ProductItemsGridviewState extends State<ProductItemsGridview> {
                   );
                 },
                 child: Center(
-                  child: Image(
-                    image: NetworkImage(widget.productmodel[index]['image']),
-                    height: 80,
-                    width: 99,
+                  child: AspectRatio(
+                    aspectRatio: 150 / 80,
+                    child: Image(
+                      image: NetworkImage(widget.productmodel[index]['image']),
+                    ),
                   ),
                 ),
               ),
               Text(
                 widget.productmodel[index]['name'],
                 overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 14.sp, fontWeight: FontWeight.bold),
               ),
               Text(
                 widget.productmodel[index]['stock'] == 1
                     ? "In Stock"
                     : "Out of Stock",
-                style: TextStyle(fontSize: 14),
+                style: TextStyle(fontSize: 12.sp),
               ),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
                     "${widget.productmodel[index]['price'].toString()} BDT",
-                    style: TextStyle(fontSize: 18, color: Colors.black),
+                    style: TextStyle(fontSize: 13.sp, color: Colors.black),
                   ),
                   IconButton(
                     onPressed: () {
@@ -86,8 +87,8 @@ class _ProductItemsGridviewState extends State<ProductItemsGridview> {
                     },
                     icon: Image(
                       image: AssetImage("lib/assets/icons/add_button.png"),
-                      height: 45,
-                      width: 45,
+                      height: 35,
+                      width: 35,
                     ),
                   ),
                 ],

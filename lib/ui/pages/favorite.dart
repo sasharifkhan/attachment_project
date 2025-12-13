@@ -1,6 +1,7 @@
 import 'package:Nectar/services/providers/productsprovider.dart';
 import 'package:Nectar/ui/pages/productdetails.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Favorite extends StatefulWidget {
@@ -38,7 +39,7 @@ class _FavoriteState extends State<Favorite> {
               return Center(
                 child: Text(
                   "No Items in Favorite",
-                  style: TextStyle(fontSize: 18),
+                  style: TextStyle(fontSize: 18.sp),
                 ),
               );
             }
