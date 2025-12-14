@@ -25,7 +25,7 @@ class _AccountState extends State<Account> {
         Padding(
           padding: const EdgeInsets.only(left: 20, top: 40),
           child: Row( children: [
-            ClipRRect(borderRadius: BorderRadius.circular(50), child: Image(image: AssetImage("lib/assets/icons/profile.png"),height: 64,width: 64,)),
+            ClipRRect(borderRadius: BorderRadius.circular(50), child: Image(image: AssetImage("assets/icons/profile.png"),height: 64,width: 64,)),
             SizedBox(width: 10,),
             Consumer<Profiledetailsprovider>(builder: (_, proviver, _){
               return Column(crossAxisAlignment: CrossAxisAlignment.start, children: [

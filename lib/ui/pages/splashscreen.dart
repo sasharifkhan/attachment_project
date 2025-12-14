@@ -28,7 +28,7 @@ class _SplashscreenState extends State<Splashscreen> {
       backgroundColor: Color(0xFF53B175),
       body: Center(
         child: Image(
-          image: AssetImage('lib/assets/icons/necter_logo.png'),
+          image: AssetImage('assets/icons/necter_logo.png'),
           height: 68,
           width: 267,
         ),

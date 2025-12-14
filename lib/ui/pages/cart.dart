@@ -83,7 +83,7 @@ class Cart extends StatelessWidget {
                                   onPressed: () {},
                                   icon: Image(
                                     image: (AssetImage(
-                                      "lib/assets/icons/minusicon.png",
+                                      "assets/icons/minusicon.png",
                                     )),
                                     height: 35.dg,
                                     width: 35.dg,
@@ -94,7 +94,7 @@ class Cart extends StatelessWidget {
                                   onPressed: () {},
                                   icon: Image(
                                     image: (AssetImage(
-                                      "lib/assets/icons/plusicon.png",
+                                      "assets/icons/plusicon.png",
                                     )),
                                     height: 35.dg,
                                     width: 35.dg,

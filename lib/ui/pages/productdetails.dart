@@ -83,11 +83,14 @@ class _ProductdetailsState extends State<Productdetails> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
-                              productinfo[0]['name'],
-                              style: TextStyle(
-                                fontSize: 22.sp,
-                                fontWeight: FontWeight.bold,
+                            Expanded(
+                              child: Text(
+                                productinfo[0]['name'],
+                                maxLines: 1,
+                                style: TextStyle(
+                                  fontSize: 22.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                             Consumer<Productsprovider>(

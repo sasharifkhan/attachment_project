@@ -39,14 +39,13 @@ class _CategoriesproductState extends State<Categoriesproduct> {
       ),
       backgroundColor: Colors.white,
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 20, left: 20, right: 20),
+        padding: EdgeInsets.only(bottom: 20.h, left: 20.w, right: 20.w),
         child: Consumer<Productsprovider>(
           builder: (_, provider, _) {
             List<Map<String, dynamic>> categoriesproducts =
                 provider.cateoriesproduct;
             return GridView.builder(
               itemCount: categoriesproducts.length,
-              padding: EdgeInsets.all(10),
               scrollDirection: Axis.vertical,
               gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
                 mainAxisExtent: 250,
@@ -111,7 +110,10 @@ class _CategoriesproductState extends State<Categoriesproduct> {
                         children: [
                           Text(
                             "${categoriesproducts[index]['price'].toString()} BDT",
-                            style: TextStyle(fontSize: 18, color: Colors.black),
+                            style: TextStyle(
+                              fontSize: 16.sp,
+                              color: Colors.black,
+                            ),
                           ),
                           IconButton(
                             onPressed: () {
@@ -135,9 +137,7 @@ class _CategoriesproductState extends State<Categoriesproduct> {
                               }
                             },
                             icon: Image(
-                              image: AssetImage(
-                                "lib/assets/icons/add_button.png",
-                              ),
+                              image: AssetImage("assets/icons/add_button.png"),
                               height: 35,
                               width: 35,
                             ),

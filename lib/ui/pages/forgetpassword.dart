@@ -19,11 +19,11 @@ class _ForgetpasswordPageState extends State<ForgetpasswordPage> {
       extendBodyBehindAppBar: true,
       appBar: AppBar(backgroundColor: Colors.transparent,),
       backgroundColor: Color(0xFFFFFFFF),
-      body: Container(decoration: BoxDecoration(image: DecorationImage(image: AssetImage('lib/assets/images/login_page_bg.png'),fit: BoxFit.cover)),child: 
+      body: Container(decoration: BoxDecoration(image: DecorationImage(image: AssetImage('assets/images/login_page_bg.png'),fit: BoxFit.cover)),child: 
       Center(child: Padding(
         padding: const EdgeInsets.only(left: 20,right: 20,top: 40,bottom: 50),
         child: Column(mainAxisAlignment: MainAxisAlignment.spaceEvenly,  crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Center(child: Image(image: AssetImage("lib/assets/icons/nectar_icon_red.png"),height: 55, width: 47,)),
+          Center(child: Image(image: AssetImage("assets/icons/nectar_icon_red.png"),height: 55, width: 47,)),
           Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text("Forget Password",style: TextStyle(fontSize: 26),),
             Text("Enter your email to continue",style: TextStyle(fontSize: 16),),

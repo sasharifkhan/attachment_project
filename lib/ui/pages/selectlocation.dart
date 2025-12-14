@@ -33,7 +33,7 @@ class _SelectlocationState extends State<Selectlocation> {
             );
           },
           icon: Image(
-            image: AssetImage("lib/assets/icons/back arrow.png"),
+            image: AssetImage("assets/icons/back arrow.png"),
             height: 16.dg,
             width: 8.dg,
           ),
@@ -45,7 +45,7 @@ class _SelectlocationState extends State<Selectlocation> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/assets/images/login_page_bg.png"),
+                image: AssetImage("assets/images/login_page_bg.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -67,7 +67,7 @@ class _SelectlocationState extends State<Selectlocation> {
                           aspectRatio: 200 / 90,
                           child: Image(
                             image: AssetImage(
-                              "lib/assets/images/select_location_img.png",
+                              "assets/images/select_location_img.png",
                             ),
                           ),
                         ),

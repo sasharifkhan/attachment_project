@@ -12,7 +12,7 @@ class Onboardingscreen extends StatelessWidget {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("lib/assets/images/onboarding_bg_image.png"),
+            image: AssetImage("assets/images/onboarding_bg_image.png"),
             fit: BoxFit.cover,
           ),
         ),
@@ -24,7 +24,7 @@ class Onboardingscreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Image(
-                image: AssetImage("lib/assets/icons/nectar_icon.png"),
+                image: AssetImage("assets/icons/nectar_icon.png"),
                 height: 48.dg,
                 width: 38.dg,
               ),

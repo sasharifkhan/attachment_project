@@ -11,7 +11,7 @@ class Grocerieslist extends StatelessWidget {
           ),child: Padding(
             padding: const EdgeInsets.all(15),
             child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-              Image(image: AssetImage("lib/assets/productimages/pulses.png"),height: 72,width: 75,),
+              Image(image: AssetImage("assets/productimages/pulses.png"),height: 72,width: 75,),
               SizedBox(width: 10,),
               Text("Pulses",style: TextStyle(fontSize: 20,color: Colors.black),)
             ],),

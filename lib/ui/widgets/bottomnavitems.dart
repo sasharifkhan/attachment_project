@@ -25,35 +25,35 @@ class BottomNavItems extends StatelessWidget {
                 BottomNavigationBarItem(
                   label: "Shop",
                   icon: ImageIcon(
-                    AssetImage("lib/assets/icons/shop.png"),
+                    AssetImage("assets/icons/shop.png"),
                     size: 24,
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: "Explore",
                   icon: ImageIcon(
-                    AssetImage("lib/assets/icons/explore.png"),
+                    AssetImage("assets/icons/explore.png"),
                     size: 24,
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: "Cart",
                   icon: ImageIcon(
-                    AssetImage("lib/assets/icons/cart.png"),
+                    AssetImage("assets/icons/cart.png"),
                     size: 24,
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: "Favorite",
                   icon: ImageIcon(
-                    AssetImage("lib/assets/icons/favorite.png"),
+                    AssetImage("assets/icons/favorite.png"),
                     size: 24,
                   ),
                 ),
                 BottomNavigationBarItem(
                   label: "Account",
                   icon: ImageIcon(
-                    AssetImage("lib/assets/icons/account.png"),
+                    AssetImage("assets/icons/account.png"),
                     size: 24,
                   ),
                 ),

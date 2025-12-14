@@ -25,7 +25,7 @@ class _ShopscreenState extends State<Shopscreen> {
           child: Column(
             children: [
               Image(
-                image: AssetImage("lib/assets/icons/nectar_icon_red.png"),
+                image: AssetImage("assets/icons/nectar_icon_red.png"),
                 height: 28.dg,
                 width: 22.dg,
               ),
@@ -34,7 +34,7 @@ class _ShopscreenState extends State<Shopscreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image(
-                    image: AssetImage("lib/assets/icons/location_icon.png"),
+                    image: AssetImage("assets/icons/location_icon.png"),
                     height: 16.dg,
                     width: 14.dg,
                   ),
@@ -52,7 +52,8 @@ class _ShopscreenState extends State<Shopscreen> {
               const Searchbox(),
               SizedBox(height: 5.h),
               Expanded(
-                child: ListView(
+                child: Column(
+                  // shrinkWrap: true,
                   children: [
                     SizedBox(
                       height: 115,
@@ -66,9 +67,7 @@ class _ShopscreenState extends State<Shopscreen> {
                             child: ClipRRect(
                               borderRadius: BorderRadiusGeometry.circular(18),
                               child: Image(
-                                image: AssetImage(
-                                  "lib/assets/images/banner.png",
-                                ),
+                                image: AssetImage("assets/images/banner.png"),
                                 fit: BoxFit.cover,
                                 width: double.infinity,
                               ),
@@ -97,12 +96,16 @@ class _ShopscreenState extends State<Shopscreen> {
                       ],
                     ),
                     SizedBox(height: 10),
-                    Consumer<Productsprovider>(
-                      builder: (_, provider, _) {
-                        List<Map<String, dynamic>> allproducts =
-                            provider.allproducts;
-                        return ProductItemsGridview(productmodel: allproducts);
-                      },
+                    Expanded(
+                      child: Consumer<Productsprovider>(
+                        builder: (_, provider, _) {
+                          List<Map<String, dynamic>> allproducts =
+                              provider.allproducts;
+                          return ProductItemsGridview(
+                            productmodel: allproducts,
+                          );
+                        },
+                      ),
                     ),
                   ],
                 ),

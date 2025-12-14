@@ -56,7 +56,7 @@ class _ProductItemsGridviewState extends State<ProductItemsGridview> {
                   child: AspectRatio(
                     aspectRatio: 150 / 80,
                     child: Image(
-                      image: NetworkImage(widget.productmodel[index]['image']),
+                      image: AssetImage(widget.productmodel[index]['image']),
                     ),
                   ),
                 ),
@@ -98,7 +98,7 @@ class _ProductItemsGridviewState extends State<ProductItemsGridview> {
                       }
                     },
                     icon: Image(
-                      image: AssetImage("lib/assets/icons/add_button.png"),
+                      image: AssetImage("assets/icons/add_button.png"),
                       height: 35,
                       width: 35,
                     ),

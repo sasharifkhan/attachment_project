@@ -34,7 +34,7 @@ class _SinguppageState extends State<Singuppage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage("lib/assets/images/login_page_bg.png"),
+                image: AssetImage("assets/images/login_page_bg.png"),
                 fit: BoxFit.cover,
               ),
             ),
@@ -55,7 +55,7 @@ class _SinguppageState extends State<Singuppage> {
                         Center(
                           child: Image(
                             image: AssetImage(
-                              "lib/assets/icons/nectar_icon_red.png",
+                              "assets/icons/nectar_icon_red.png",
                             ),
                             height: 50.dg,
                             width: 42.dg,

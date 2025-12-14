@@ -12,7 +12,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 100,
       "review": 5,
-      "image": "lib/assets/categories/images/beverages/7up.png",
+      "image": "assets/categories/images/beverages/7up.png",
     },
     {
       "id": 2,
@@ -24,7 +24,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 4,
-      "image": "lib/assets/categories/images/beverages/cheer_up.png",
+      "image": "assets/categories/images/beverages/cheer_up.png",
     },
     {
       "id": 3,
@@ -36,7 +36,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/beverages/lacchi.png",
+      "image": "assets/categories/images/beverages/lacchi.png",
     },
     {
       "id": 4,
@@ -48,7 +48,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 50,
       "review": 5,
-      "image": "lib/assets/categories/images/burger/beef_lettuce.png",
+      "image": "assets/categories/images/burger/beef_lettuce.png",
     },
     {
       "id": 5,
@@ -61,7 +61,7 @@ class Productsprovider extends ChangeNotifier {
       "nutrition": 150,
       "review": 5,
       "image":
-          "lib/assets/categories/images/burger/burger-with-floating-ingredient.png",
+          "assets/categories/images/burger/burger-with-floating-ingredient.png",
     },
     {
       "id": 6,
@@ -74,7 +74,7 @@ class Productsprovider extends ChangeNotifier {
       "nutrition": 150,
       "review": 5,
       "image":
-          "lib/assets/categories/images/burger/delicious-crispy-chicken-burger.png",
+          "assets/categories/images/burger/delicious-crispy-chicken-burger.png",
     },
     {
       "id": 7,
@@ -86,7 +86,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/dessert/jilebi-jangri.png",
+      "image": "assets/categories/images/dessert/jilebi-jangri.png",
     },
     {
       "id": 8,
@@ -98,7 +98,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/dessert/sweetness-candy.png",
+      "image": "assets/categories/images/dessert/sweetness-candy.png",
     },
     {
       "id": 9,
@@ -111,7 +111,7 @@ class Productsprovider extends ChangeNotifier {
       "nutrition": 150,
       "review": 5,
       "image":
-          "lib/assets/categories/images/dessert/traditional-indian-mithai.png",
+          "assets/categories/images/dessert/traditional-indian-mithai.png",
     },
     {
       "id": 10,
@@ -123,7 +123,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/mexican/mexican-empanadas.png",
+      "image": "assets/categories/images/mexican/mexican-empanadas.png",
     },
     {
       "id": 11,
@@ -136,7 +136,7 @@ class Productsprovider extends ChangeNotifier {
       "nutrition": 150,
       "review": 5,
       "image":
-          "lib/assets/categories/images/mexican/red-pozole-with-chicken.png",
+          "assets/categories/images/mexican/red-pozole-with-chicken.png",
     },
     {
       "id": 12,
@@ -148,7 +148,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/mexican/tostadas-mexican.png",
+      "image": "assets/categories/images/mexican/tostadas-mexican.png",
     },
     {
       "id": 13,
@@ -161,7 +161,7 @@ class Productsprovider extends ChangeNotifier {
       "nutrition": 150,
       "review": 5,
       "image":
-          "lib/assets/categories/images/pasta/delicious-spicy-spaghetti.png",
+          "assets/categories/images/pasta/delicious-spicy-spaghetti.png",
     },
     {
       "id": 14,
@@ -173,7 +173,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/pasta/pasta-isolated.png",
+      "image": "assets/categories/images/pasta/pasta-isolated.png",
     },
     {
       "id": 15,
@@ -185,7 +185,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/pasta/pngtpasta-in-tomato.png",
+      "image": "assets/categories/images/pasta/pngtpasta-in-tomato.png",
     },
     {
       "id": 16,
@@ -197,7 +197,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/pizza/big-pizza.png",
+      "image": "assets/categories/images/pizza/big-pizza.png",
     },
     {
       "id": 17,
@@ -209,7 +209,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/pizza/hot-mini-pizza.png",
+      "image": "assets/categories/images/pizza/hot-mini-pizza.png",
     },
     {
       "id": 18,
@@ -221,7 +221,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/pizza/pepperoni-pizza.png",
+      "image": "assets/categories/images/pizza/pepperoni-pizza.png",
     },
     {
       "id": 19,
@@ -233,7 +233,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/salads/Chicken Salad.jpg",
+      "image": "assets/categories/images/salads/Chicken Salad.jpg",
     },
     {
       "id": 20,
@@ -245,7 +245,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/salads/Green Salad.png",
+      "image": "assets/categories/images/salads/Green Salad.png",
     },
     {
       "id": 21,
@@ -257,7 +257,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/salads/Salad Vegetable.png",
+      "image": "assets/categories/images/salads/Salad Vegetable.png",
     },
     {
       "id": 22,
@@ -269,7 +269,7 @@ class Productsprovider extends ChangeNotifier {
       "stock": 1,
       "nutrition": 150,
       "review": 5,
-      "image": "lib/assets/categories/images/sandwich/Club Sandwich.png",
+      "image": "assets/categories/images/sandwich/Club Sandwich.png",
     },
     {
       "id": 23,
@@ -282,7 +282,7 @@ class Productsprovider extends ChangeNotifier {
       "nutrition": 150,
       "review": 5,
       "image":
-          "lib/assets/categories/images/sandwich/Philly Cheese Steak Sandwich.png",
+          "assets/categories/images/sandwich/Philly Cheese Steak Sandwich.png",
     },
     {
       "id": 24,
@@ -295,7 +295,7 @@ class Productsprovider extends ChangeNotifier {
       "nutrition": 150,
       "review": 5,
       "image":
-          "lib/assets/categories/images/sandwich/Savory Chicken Club Sandwich.png",
+          "assets/categories/images/sandwich/Savory Chicken Club Sandwich.png",
     },
   ];
   get allproducts => _allproducts;

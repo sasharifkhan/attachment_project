@@ -34,7 +34,7 @@ class _LoginpageState extends State<Loginpage> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('lib/assets/images/login_page_bg.png'),
+                image: AssetImage('assets/images/login_page_bg.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -53,7 +53,7 @@ class _LoginpageState extends State<Loginpage> {
                     Center(
                       child: Image(
                         image: AssetImage(
-                          "lib/assets/icons/nectar_icon_red.png",
+                          "assets/icons/nectar_icon_red.png",
                         ),
                         height: 50.dg,
                         width: 42.dg,
@@ -248,7 +248,7 @@ class _LoginpageState extends State<Loginpage> {
                         Rectangleroundedbutton(
                           buttonicon: Image(
                             image: AssetImage(
-                              "lib/assets/icons/google_icon.png",
+                              "assets/icons/google_icon.png",
                             ),
                             height: 24,
                             width: 24,
