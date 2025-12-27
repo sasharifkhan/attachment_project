@@ -1,6 +1,13 @@
 import 'package:Nectar/logic/auth/providerdata.dart';
 import 'package:Nectar/logic/providers/profiledetailsprovider.dart';
+import 'package:Nectar/ui/pages/aboutscreen.dart';
+import 'package:Nectar/ui/pages/address.dart';
+import 'package:Nectar/ui/pages/helpscreen.dart';
 import 'package:Nectar/ui/pages/loginpage.dart';
+import 'package:Nectar/ui/pages/mydetails.dart';
+import 'package:Nectar/ui/pages/notificationscreen.dart';
+import 'package:Nectar/ui/pages/orders.dart';
+import 'package:Nectar/ui/pages/paymentmethod.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -44,35 +51,31 @@ class _AccountState extends State<Account> {
           SizedBox(height: 10,),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
-            
+            Navigator.push(context,MaterialPageRoute(builder: (context) => OrdersScreen(),));
           }, leading: Icon(Icons.shopping_bag), title: Text("Orders",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
-            
+            Navigator.push(context, MaterialPageRoute(builder: (context) => MyDetailsScreen(),));
           },leading: Icon(Icons.card_membership_outlined), title: Text("My Details",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
-            
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DeliveryAddressScreen(),));
           },leading: Icon(Icons.location_on), title: Text("Delivery Address",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
-            
+            Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentMethodsScreen(),));
           },leading: Icon(Icons.credit_card), title: Text("Payment Methods",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
-            
-          },leading: Icon(Icons.card_giftcard_rounded), title: Text("Promo Code",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
-          Container(height: 1, color: Colors.grey.shade300,),
-          ListTile(onTap: () {
-            
+            Navigator.push(context, MaterialPageRoute(builder: (context) => NotificationsScreen(),));
           },leading: Icon(Icons.notifications_active), title: Text("Notifications",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
-            
+            Navigator.push(context, MaterialPageRoute(builder: (context) => HelpScreen(),));
           },leading: Icon(Icons.help), title: Text("Help",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
-            
+            Navigator.push(context, MaterialPageRoute(builder: (context) => AboutScreen(),));
           },leading: Icon(Icons.details_rounded), title: Text("About ",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           Container(height: 1, color: Colors.grey.shade300,),
           ListTile(onTap: () {
