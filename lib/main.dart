@@ -1,14 +1,11 @@
 // ignore_for_file: unused_import
 
-import 'package:Nectar/firebase_options.dart';
 import 'package:Nectar/logic/auth/authentication.dart';
 import 'package:Nectar/logic/providers/locationprovider.dart';
 import 'package:Nectar/logic/providers/profiledetailsprovider.dart';
 import 'package:Nectar/services/providers/getsingleproduct.dart';
 import 'package:Nectar/services/providers/categoriesprovider.dart';
 import 'package:Nectar/services/providers/productsprovider.dart';
-import 'package:device_preview/device_preview.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:Nectar/logic/applogic/appscreenswitch.dart';
