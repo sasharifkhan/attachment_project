@@ -29,234 +29,213 @@ class _ProductdetailsState extends State<Productdetails> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        backgroundColor: Color(0xFFF2F3F2),
-        automaticallyImplyLeading: true,
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.share))],
+        backgroundColor: const Color(0xFFF2F3F2),
+        actions: [
+          IconButton(onPressed: () {}, icon: const Icon(Icons.share)),
+        ],
       ),
       body: Consumer<Getsingleproduct>(
-        builder: (_, provider, _) {
-          List<Map<String, dynamic>> productinfo = provider.productinfo;
-          return ListView(
-            // mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Expanded(
-                flex: 3,
-                child: ClipRRect(
-                  borderRadius: BorderRadiusGeometry.only(
-                    bottomRight: Radius.circular(40.r),
-                    bottomLeft: Radius.circular(40).r,
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    decoration: BoxDecoration(color: Color(0xFFF2F3F2)),
-                    child: Center(
-                      child: ClipRRect(
-                        borderRadius: BorderRadiusGeometry.circular(15),
-                        child: AspectRatio(
-                          aspectRatio: 250 / 140,
-                          child: Image(
-                            image: AssetImage(productinfo[0]['image']),
+        builder: (_, provider, __) {
+          final productinfo = provider.productinfo;
 
-                            fit: BoxFit.fill,
-                          ),
-                        ),
-                      ),
+          /// ✅ SAFE CHECK
+          if (productinfo.isEmpty) {
+            return const Center(child: CircularProgressIndicator());
+          }
+
+          final product = productinfo[0];
+
+          return Column(
+            children: [
+              /// ================= IMAGE SECTION =================
+              Container(
+                height: 260.h,
+                width: double.infinity,
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF2F3F2),
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(40.r),
+                    bottomRight: Radius.circular(40.r),
+                  ),
+                ),
+                child: Center(
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(15.r),
+                    child: Image.asset(
+                      product['image'],
+                      fit: BoxFit.contain,
                     ),
                   ),
                 ),
               ),
-              Expanded(
-                flex: 5,
-                child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: 20,
-                    right: 20,
-                    bottom: 40,
-                  ),
-                  child: Container(
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        SizedBox(height: 10.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                productinfo[0]['name'],
-                                maxLines: 1,
-                                style: TextStyle(
-                                  fontSize: 22.sp,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Consumer<Productsprovider>(
-                              builder: (_, provider, _) {
-                                List<Map<String, dynamic>> favlist =
-                                    provider.favorite;
-                                final exists = favlist.any(
-                                  (p) => p['id'] == widget.id,
-                                );
-                                return IconButton(
-                                  onPressed: () {
-                                    bool status = provider.addproducttofavorite(
-                                      widget.id,
-                                    );
-                                    if (status == true) {
-                                      Fluttertoast.showToast(
-                                        msg: "Product added to Favorite",
-                                        gravity: ToastGravity.TOP,
-                                      );
-                                    } else if (status == false) {
-                                      Fluttertoast.showToast(
-                                        msg: "Product removed from Favorite",
-                                        gravity: ToastGravity.TOP,
-                                      );
-                                    }
-                                  },
-                                  icon: Icon(
-                                    size: 24.dg,
-                                    exists
-                                        ? Icons.favorite
-                                        : Icons.favorite_border,
-                                  ),
-                                );
-                              },
-                            ),
-                          ],
-                        ),
 
-                        Text(
-                          productinfo[0]['stock'] == 1
-                              ? "In Stock"
-                              : "Out of Stock",
-                          style: TextStyle(fontSize: 14.sp),
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Row(
-                              children: [
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.remove),
-                                ),
-                                Text("1", style: TextStyle(fontSize: 16.sp)),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.add),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              "${productinfo[0]['price'].toString()} BDT",
+              /// ================= DETAILS SECTION =================
+              Expanded(
+                child: SingleChildScrollView(
+                  padding: EdgeInsets.symmetric(
+                    horizontal: 20.w,
+                    vertical: 20.h,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      /// NAME + FAVORITE
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Text(
+                              product['name'],
                               style: TextStyle(
                                 fontSize: 22.sp,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                          ],
+                          ),
+                          Consumer<Productsprovider>(
+                            builder: (_, provider, __) {
+                              final exists = provider.favorite
+                                  .any((p) => p['id'] == widget.id);
+
+                              return IconButton(
+                                icon: Icon(
+                                  exists
+                                      ? Icons.favorite
+                                      : Icons.favorite_border,
+                                  color: Colors.red,
+                                ),
+                                onPressed: () {
+                                  final status = provider
+                                      .addproducttofavorite(widget.id);
+                                  Fluttertoast.showToast(
+                                    msg: status
+                                        ? "Added to Favorite"
+                                        : "Removed from Favorite",
+                                  );
+                                },
+                              );
+                            },
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: 6.h),
+
+                      /// STOCK
+                      Text(
+                        product['stock'] == 1
+                            ? "In Stock"
+                            : "Out of Stock",
+                        style: TextStyle(fontSize: 14.sp),
+                      ),
+
+                      SizedBox(height: 10.h),
+
+                      /// QUANTITY + PRICE
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              IconButton(
+                                icon: const Icon(Icons.remove),
+                                onPressed: () {},
+                              ),
+                              Text("1", style: TextStyle(fontSize: 16.sp)),
+                              IconButton(
+                                icon: const Icon(Icons.add),
+                                onPressed: () {},
+                              ),
+                            ],
+                          ),
+                          Text(
+                            "${product['price']} BDT",
+                            style: TextStyle(
+                              fontSize: 22.sp,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+
+                      Divider(),
+
+                      /// DESCRIPTION
+                      Text(
+                        "Product Details",
+                        style: TextStyle(
+                          fontSize: 14.sp,
+                          fontWeight: FontWeight.bold,
                         ),
-                        Container(height: 1, color: Colors.grey.shade300),
-                        SizedBox(height: 10.h),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Product Details:",
-                              style: TextStyle(
-                                fontSize: 14.sp,
-                                fontWeight: FontWeight.bold,
+                      ),
+                      SizedBox(height: 5.h),
+                      Text(
+                        product['desc'],
+                        style: TextStyle(fontSize: 14.sp),
+                      ),
+
+                      Divider(),
+
+                      /// NUTRITION
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Nutritions", style: TextStyle(fontSize: 14.sp)),
+                          Row(
+                            children: [
+                              Text(
+                                product['nutrition'].toString(),
+                                style: TextStyle(
+                                  fontSize: 14.sp,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const Icon(Icons.keyboard_arrow_right),
+                            ],
+                          ),
+                        ],
+                      ),
+
+                      Divider(),
+
+                      /// REVIEW
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Review", style: TextStyle(fontSize: 14.sp)),
+                          Row(
+                            children: List.generate(
+                              5,
+                              (_) => const Icon(
+                                Icons.star,
+                                color: Color(0xFFF3603F),
+                                size: 18,
                               ),
                             ),
-                            // IconButton(
-                            //   onPressed: () {},
-                            //   icon: Icon(Icons.keyboard_arrow_down_sharp),
-                            // ),
-                          ],
-                        ),
-                        SizedBox(height: 5.h),
-                        Text(
-                          productinfo[0]['desc'],
-                          style: TextStyle(fontSize: 14.sp),
-                          maxLines: 3,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 5.h),
-                        Container(height: 1, color: Colors.grey.shade300),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text(
-                              "Nutritions",
-                              style: TextStyle(fontSize: 14.sp),
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  productinfo[0]['nutrition'].toString(),
-                                  style: TextStyle(
-                                    fontSize: 14.sp,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.keyboard_arrow_right),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        Container(height: 1, color: Colors.grey.shade300),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Review", style: TextStyle(fontSize: 14.sp)),
-                            Row(
-                              children: [
-                                Icon(Icons.star, color: Color(0xFFF3603F)),
-                                Icon(Icons.star, color: Color(0xFFF3603F)),
-                                Icon(Icons.star, color: Color(0xFFF3603F)),
-                                Icon(Icons.star, color: Color(0xFFF3603F)),
-                                Icon(Icons.star, color: Color(0xFFF3603F)),
-                                IconButton(
-                                  onPressed: () {},
-                                  icon: Icon(Icons.keyboard_arrow_right),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 5.h),
-                        Container(height: 1, color: Colors.grey.shade300),
-                        SizedBox(height: 22.h),
-                        Rectangleroundedbutton(
-                          buttonName: "Add To Basket",
-                          buttonbgcolor: Color(0xFF53B175),
-                          callback: () {
-                            bool status = Provider.of<Productsprovider>(
-                              context,
-                              listen: false,
-                            ).addproducttocart(widget.id);
-                            if (status == true) {
-                              Fluttertoast.showToast(
-                                msg: "Product added to Cart",
-                                gravity: ToastGravity.TOP,
-                              );
-                            } else if (status == false) {
-                              Fluttertoast.showToast(
-                                msg: "Product already added to Cart",
-                                gravity: ToastGravity.TOP,
-                              );
-                            }
-                          },
-                        ),
-                      ],
-                    ),
+                          ),
+                        ],
+                      ),
+
+                      SizedBox(height: 30.h),
+
+                      /// ADD TO CART
+                      Rectangleroundedbutton(
+                        buttonName: "Add To Basket",
+                        buttonbgcolor: const Color(0xFF53B175),
+                        callback: () {
+                          final status =
+                              Provider.of<Productsprovider>(
+                            context,
+                            listen: false,
+                          ).addproducttocart(widget.id);
+
+                          Fluttertoast.showToast(
+                            msg: status
+                                ? "Added to Cart"
+                                : "Already in Cart",
+                          );
+                        },
+                      ),
+                    ],
                   ),
                 ),
               ),
