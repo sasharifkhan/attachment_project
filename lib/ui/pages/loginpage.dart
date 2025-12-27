@@ -1,6 +1,5 @@
 // ignore_for_file: use_build_context_synchronously, non_constant_identifier_names
 
-import 'package:Nectar/logic/auth/firebase_login.dart';
 import 'package:Nectar/services/apiservices/apirequest/userlogin.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +46,7 @@ class _LoginpageState extends State<Loginpage> {
                   bottom: 50.h,
                 ),
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
@@ -62,7 +61,9 @@ class _LoginpageState extends State<Loginpage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(height: 20.h,),
                         Text("Log In", style: TextStyle(fontSize: 22.sp)),
+                        SizedBox(height: 10.h,),
                         Text(
                           "Enter your email and password",
                           style: TextStyle(fontSize: 15.sp),
@@ -72,6 +73,7 @@ class _LoginpageState extends State<Loginpage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(height: 20.h,),
                         Text("Email", style: TextStyle(fontSize: 15.sp)),
                         Plainedtextfield(
                           keyboardType: TextInputType.name,
@@ -83,6 +85,7 @@ class _LoginpageState extends State<Loginpage> {
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
+                        SizedBox(height: 10.h,),
                         Text("Password", style: TextStyle(fontSize: 15.sp)),
                         Consumer<Providerdata>(
                           builder: (ctx, provider, child) {
@@ -120,7 +123,7 @@ class _LoginpageState extends State<Loginpage> {
                                   text: TextSpan(
                                     text: "Forgot Password?",
                                     style: TextStyle(
-                                      fontSize: 13.sp,
+                                      fontSize: 14.sp,
                                       color: Colors.black,
                                     ),
                                     recognizer: TapGestureRecognizer()
@@ -135,12 +138,14 @@ class _LoginpageState extends State<Loginpage> {
                                       },
                                   ),
                                 ),
+                                
                               ],
                             );
                           },
                         ),
                       ],
                     ),
+                    SizedBox(height: 30.h,),
                     Column(
                       children: [
                         Consumer<Providerdata>(
@@ -245,22 +250,23 @@ class _LoginpageState extends State<Loginpage> {
                           },
                         ),
                         SizedBox(height: 20),
-                        Rectangleroundedbutton(
-                          buttonicon: Image(
-                            image: AssetImage(
-                              "assets/icons/google_icon.png",
-                            ),
-                            height: 24,
-                            width: 24,
-                          ),
-                          buttonName: "Continue with Google",
-                          callback: () {
-                            FirebaseLogin().firebaselogin();
-                          },
-                          buttonbgcolor: Color(0xFF5383EC),
-                        ),
+                        // Rectangleroundedbutton(
+                        //   buttonicon: Image(
+                        //     image: AssetImage(
+                        //       "assets/icons/google_icon.png",
+                        //     ),
+                        //     height: 24,
+                        //     width: 24,
+                        //   ),
+                        //   buttonName: "Continue with Google",
+                        //   callback: () {
+                        //     FirebaseLogin().firebaselogin();
+                        //   },
+                        //   buttonbgcolor: Color(0xFF5383EC),
+                        // ),
                       ],
                     ),
+                    SizedBox(height: 10.h,),
                     Center(
                       child: RichText(
                         text: TextSpan(
@@ -268,19 +274,19 @@ class _LoginpageState extends State<Loginpage> {
                             TextSpan(
                               text: "Don’t have an account? ",
                               style: TextStyle(
-                                fontSize: 12.sp,
+                                fontSize: 14.sp,
                                 color: Colors.black,
                               ),
                             ),
                             TextSpan(
                               text: "SignUp",
                               style: TextStyle(
-                                fontSize: 12.sp,
+                                fontSize: 14.sp,
                                 color: Color(0xFF53B175),
                               ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  Navigator.pushReplacement(
+                                  Navigator.push(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) => Singuppage(),
@@ -298,10 +304,12 @@ class _LoginpageState extends State<Loginpage> {
             ),
           ),
           if (isLoading == true)
-            Container(
-              decoration: BoxDecoration(color: Colors.black45),
-              child: Center(
-                child: CircularProgressIndicator(color: Colors.white),
+            Center(
+              child: Container(
+                decoration: BoxDecoration(color: Colors.black45),
+                child: Center(
+                  child: CircularProgressIndicator(color: Colors.white),
+                ),
               ),
             ),
         ],

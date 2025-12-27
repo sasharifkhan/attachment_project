@@ -80,7 +80,7 @@ class _AccountState extends State<Account> {
             Provider.of<Providerdata>(listen: false, context).tokenremove();
             Provider.of<Providerdata>(listen: false, context).registrationcheck(message);
             Provider.of<Providerdata>(listen: false, context).logincheck(message);
-            Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => Loginpage(),));
+            Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => Loginpage(),),(route) => false,);
           },leading: Icon(Icons.exit_to_app), title: Text("Sign Out ",style: TextStyle(fontSize: 18),),trailing: Icon(Icons.arrow_right,size: 35,),),
           ],),
         )

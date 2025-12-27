@@ -153,14 +153,14 @@ class _SinguppageState extends State<Singuppage> {
                                     text: "By continuing you agree to our ",
                                     style: TextStyle(
                                       color: Colors.black,
-                                      fontSize: 12.sp,
+                                      fontSize: 14.sp,
                                     ),
                                   ),
                                   TextSpan(
                                     text: "Terms of Service",
                                     style: TextStyle(
                                       color: Color(0xFF53B175),
-                                      fontSize: 12.sp,
+                                      fontSize: 14.sp,
                                     ),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {},
@@ -176,7 +176,7 @@ class _SinguppageState extends State<Singuppage> {
                                     text: "Privacy Policy.",
                                     style: TextStyle(
                                       color: Color(0xFF53B175),
-                                      fontSize: 12.sp,
+                                      fontSize: 14.sp,
                                     ),
                                     recognizer: TapGestureRecognizer()
                                       ..onTap = () {},
@@ -234,14 +234,14 @@ class _SinguppageState extends State<Singuppage> {
                                 TextSpan(
                                   text: "Already have an account? ",
                                   style: TextStyle(
-                                    fontSize: 12.sp,
+                                    fontSize: 14.sp,
                                     color: Colors.black,
                                   ),
                                 ),
                                 TextSpan(
                                   text: "Login",
                                   style: TextStyle(
-                                    fontSize: 12.sp,
+                                    fontSize: 14.sp,
                                     color: Color(0xFF53B175),
                                   ),
                                   recognizer: TapGestureRecognizer()
